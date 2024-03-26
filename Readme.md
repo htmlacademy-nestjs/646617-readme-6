@@ -1,7 +1,7 @@
 # Личный проект «Readme»
 
 * Студент: [Вадим Кордович](https://up.htmlacademy.ru/nodejs-2/6/user/646617).
-* Наставник: `Неизвестно`.
+* Наставник: [Андрей Осипчук](https://htmlacademy.ru/profile/id616431).
 
 ---
 
