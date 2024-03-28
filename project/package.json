@@ -3,7 +3,10 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start:api": "npx nx run api:serve"
+    "start:api": "npx nx run api:serve",
+    "start:user": "npx nx run user:serve",
+    "start:post": "npx nx run post:serve",
+    "start:notification": "npx nx run notification:serve"
   },
   "private": true,
   "dependencies": {
