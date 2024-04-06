@@ -5,8 +5,8 @@ import { BlogUserService } from './blog-user.service';
 import { BlogUserController } from './blog-user.controller';
 
 @Module({
-  controllers: [],
-  providers: [BlogUserFactory, BlogUserRepository],
+  controllers: [BlogUserController],
+  providers: [BlogUserFactory, BlogUserRepository, BlogUserService],
   exports: [BlogUserRepository],
 })
 export class BlogUserModule {}

@@ -1,7 +1,6 @@
 import {
   Body,
   Controller,
-  HttpCode,
   Post
 } from '@nestjs/common';
 import { AuthenticationService } from './authentication.service';
