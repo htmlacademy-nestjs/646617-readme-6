@@ -5,7 +5,7 @@
 
 ---
 
-_Не удаляйте и не изменяйте папки и файлы:_
+_Не удаляйте и не изменяйте папки и файлы:_git checkout master
 _`.editorconfig`, `.gitattributes`, `.gitignore`._
 
 ---
