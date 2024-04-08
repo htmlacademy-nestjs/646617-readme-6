@@ -1,1 +1,6 @@
-export { UserAnswer } from './user.constants'
+export { UserError } from './user-error.enum'
+export { PostError } from './post-error.enum'
+export { PostState } from './post-state.enum'
+export { PostType } from './post-type.enum'
+export { Sort } from './sort.enum'
+export { SortType } from './sort-type.enum'

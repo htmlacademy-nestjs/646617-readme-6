@@ -3,8 +3,8 @@ export interface User {
   email: string;
   firstname: string;
   lastname: string;
-  passwordHash: string;
-  dateRegistration: Date;
+  passwordHash?: string;
+  dateRegistration?: Date;
   publicationsNumber?: number;
   subscribersNumber?: number;
   avatar?: File;

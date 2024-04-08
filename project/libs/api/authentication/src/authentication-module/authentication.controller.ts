@@ -16,12 +16,14 @@ export class AuthenticationController {
   @Post('register')
   public async create(@Body() dto: CreateUserDto) {
     const newUser = await this.authService.register(dto);
-    return newUser.toPOJO();
+    const { id, firstname, lastname, avatar } = newUser.toPOJO();
+    return { id, firstname, lastname, avatar };
   }
 
   @Post('login')
   public async login(@Body() dto: LoginUserDto) {
     const verifiedUser = await this.authService.verifyUser(dto);
-    return verifiedUser.toPOJO();
+    const { id, email } = verifiedUser.toPOJO();
+    return { id, email, accessToken: '' };
   }
 }

@@ -15,9 +15,8 @@ export class BlogUserController {
   ) {}
 
   @Get(':id')
-  public async getUserById(@Param('id') id: string) {
-    const newUser = await this.blogUserService.getUser(id);
-    return newUser.toPOJO();
+  public async getDetailedInformation(@Param('id') id: string) {
+    return await this.blogUserService.getUser(id);
   }
 
   @Put(':id/changePassword')

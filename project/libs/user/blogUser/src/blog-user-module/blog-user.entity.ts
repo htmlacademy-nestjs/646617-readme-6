@@ -11,22 +11,22 @@ import {
 import { SALT_ROUNDS } from './blog-user.constant';
 
 export class BlogUserEntity extends Entity implements StorableEntity<User> {
-  public email: string;
-  public firstname: string;
-  public lastname: string;
-  public passwordHash: string;
-  public avatar: File;
-  public dateRegistration: Date;
-  public publicationsNumber: number;
-  public subscribersNumber: number;
+  email: string;
+  firstname: string;
+  lastname: string;
+  passwordHash?: string;
+  avatar?: File;
+  dateRegistration?: Date;
+  publicationsNumber?: number;
+  subscribersNumber?: number;
 
   constructor(user?: User) {
     super();
-    this.populate(user);
+    this.init(user);
   }
 
-  public populate(user?: User): void {
-    if (! user) return;
+  init(user?: User): void {
+    if (!user) return;
 
     this.id = user.id ?? '';
     this.email = user.email;
@@ -36,10 +36,10 @@ export class BlogUserEntity extends Entity implements StorableEntity<User> {
     this.avatar = user.avatar ?? null;
     this.dateRegistration = user.dateRegistration;
     this.publicationsNumber = user.publicationsNumber;
-    this.subscribersNumber = user.subscribersNumber
+    this.subscribersNumber = user.subscribersNumber;
   }
 
-  public toPOJO(): User {
+  toPOJO(): User {
     return {
       id: this.id,
       email: this.email,
@@ -53,13 +53,13 @@ export class BlogUserEntity extends Entity implements StorableEntity<User> {
     }
   }
 
-  public async setPassword(password: string): Promise<BlogUserEntity> {
+  async setPassword(password: string): Promise<BlogUserEntity> {
     const salt = await genSalt(SALT_ROUNDS);
     this.passwordHash = await hash(password, salt);
     return this;
   }
 
-  public async comparePassword(password: string): Promise<boolean> {
+  async comparePassword(password: string): Promise<boolean> {
     return compare(password, this.passwordHash);
   }
 }

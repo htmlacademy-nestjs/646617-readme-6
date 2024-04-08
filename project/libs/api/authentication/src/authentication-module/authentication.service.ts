@@ -9,7 +9,7 @@ import { CreateUserDto } from '../dto/create-user.dto';
 import { BlogUserEntity } from '@project/blogUser';
 import { LoginUserDto } from '../dto/login-user.dto';
 import dayjs from 'dayjs';
-import { UserAnswer } from '@project/core';
+import { UserError } from '@project/core';
 
 @Injectable()
 export class AuthenticationService {
@@ -34,7 +34,7 @@ export class AuthenticationService {
       .findByEmail(email);
 
     if (existUser) {
-      throw new ConflictException(UserAnswer.AUTH_USER_EXISTS);
+      throw new ConflictException(UserError.AUTH_USER_EXISTS);
     }
 
     const userEntity = await new BlogUserEntity(blogUser)
@@ -45,16 +45,16 @@ export class AuthenticationService {
     return userEntity;
   }
 
-  public async verifyUser(dto: LoginUserDto) {
+  public async verifyUser(dto: LoginUserDto): Promise<BlogUserEntity> {
     const {email, password} = dto;
     const existUser = await this.blogUserRepository.findByEmail(email);
 
     if (!existUser) {
-      throw new NotFoundException(UserAnswer.AUTH_USER_NOT_FOUND);
+      throw new NotFoundException(UserError.AUTH_USER_NOT_FOUND);
     }
 
     if (!await existUser.comparePassword(password)) {
-      throw new UnauthorizedException(UserAnswer.AUTH_USER_PASSWORD_WRONG);
+      throw new UnauthorizedException(UserError.AUTH_USER_PASSWORD_WRONG);
     }
 
     return existUser;
