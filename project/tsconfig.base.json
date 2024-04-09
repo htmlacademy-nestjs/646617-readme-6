@@ -13,8 +13,22 @@
     "lib": ["es2020", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
+    "esModuleInterop": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@project/authentication": ["libs/api/authentication/src/index.ts"],
+      "@project/blog": ["libs/user/blog/src/index.ts"],
+      "@project/blogUser": ["libs/user/blogUser/src/index.ts"],
+      "@project/comment": ["libs/post/comment/src/index.ts"],
+      "@project/core": ["libs/shared/core/src/index.ts"],
+      "@project/dataAccess": ["libs/shared/dataAccess/src/index.ts"],
+      "@project/feed": ["libs/user/feed/src/index.ts"],
+      "@project/helpers": ["libs/shared/helpers/src/index.ts"],
+      "@project/like": ["libs/post/like/src/index.ts"],
+      "@project/mail": ["libs/notification/mail/src/index.ts"],
+      "@project/postBlog": ["libs/post/postBlog/src/index.ts"],
+      "@project/subscribe": ["libs/notification/subscribe/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
