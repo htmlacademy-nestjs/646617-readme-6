@@ -15,7 +15,7 @@ export class BlogUserEntity extends Entity implements StorableEntity<User> {
   firstname: string;
   lastname: string;
   passwordHash?: string;
-  avatar?: File;
+  avatar?: string;
   dateRegistration?: Date;
   publicationsNumber?: number;
   subscribersNumber?: number;
@@ -33,7 +33,7 @@ export class BlogUserEntity extends Entity implements StorableEntity<User> {
     this.firstname = user.firstname;
     this.lastname = user.lastname;
     this.passwordHash = user.passwordHash;
-    this.avatar = user.avatar ?? null;
+    this.avatar = user.avatar;
     this.dateRegistration = user.dateRegistration;
     this.publicationsNumber = user.publicationsNumber;
     this.subscribersNumber = user.subscribersNumber;

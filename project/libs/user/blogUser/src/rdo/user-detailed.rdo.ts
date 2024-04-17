@@ -14,7 +14,7 @@ export class UserDetailedRdo {
   public lastname: string;
 
   @Expose()
-  public avatar: File;
+  public avatar: string;
 
   @Expose()
   public dateRegistration: Date;
