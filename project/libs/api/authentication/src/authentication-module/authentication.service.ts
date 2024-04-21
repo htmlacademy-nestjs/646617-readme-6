@@ -14,7 +14,7 @@ import { UserError } from '@project/core';
 @Injectable()
 export class AuthenticationService {
   constructor(
-    private readonly blogUserRepository: BlogUserRepository
+    private readonly blogUserRepository: BlogUserRepository,
   ) {}
 
   public async register(dto: CreateUserDto): Promise<BlogUserEntity> {
