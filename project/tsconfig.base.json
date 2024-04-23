@@ -16,6 +16,7 @@
     "esModuleInterop": true,
     "baseUrl": ".",
     "paths": {
+      "@project/api-config": ["libs/api/api-config/src/index.ts"],
       "@project/authentication": ["libs/api/authentication/src/index.ts"],
       "@project/blog": ["libs/user/blog/src/index.ts"],
       "@project/blogUser": ["libs/user/blogUser/src/index.ts"],

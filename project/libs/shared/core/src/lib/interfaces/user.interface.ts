@@ -7,5 +7,5 @@ export interface User {
   dateRegistration?: Date;
   publicationsNumber?: number;
   subscribersNumber?: number;
-  avatar?: File;
+  avatar?: string;
 }

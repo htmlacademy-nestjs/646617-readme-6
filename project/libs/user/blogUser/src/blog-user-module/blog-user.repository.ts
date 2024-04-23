@@ -1,18 +1,24 @@
 import { Injectable } from '@nestjs/common';
-import { BaseMemoryRepository } from '@project/dataAccess';
+import {
+  BaseMongoRepository
+} from '@project/dataAccess';
 import { BlogUserEntity } from './blog-user.entity';
 import { BlogUserFactory } from './blog-user.factory';
+import { InjectModel } from '@nestjs/mongoose';
+import { BlogUserModel } from './blog-user.model';
+import { Model } from 'mongoose';
 
 @Injectable()
-export class BlogUserRepository extends BaseMemoryRepository<BlogUserEntity> {
-  constructor(entityFactory: BlogUserFactory) {
-    super(entityFactory);
+export class BlogUserRepository extends BaseMongoRepository<BlogUserEntity, BlogUserModel> {
+  constructor(
+    entityFactory: BlogUserFactory,
+    @InjectModel(BlogUserModel.name) blogUserModel: Model<BlogUserModel>
+  ) {
+    super(entityFactory, blogUserModel);
   }
 
-  public findByEmail(email: string): Promise<BlogUserEntity | null> {
-    const entities = Array.from(this.entities.values());
-    const user = entities.find((entity) => entity.email === email);
-    const value = user ? this.entityFactory.create(user) : null;
-    return Promise.resolve(value);
+  public async findByEmail(email: string): Promise<BlogUserEntity | null> {
+    const document = await this.model.findOne({ email }).exec();
+    return this.createEntityFromDocument(document);
   }
 }
