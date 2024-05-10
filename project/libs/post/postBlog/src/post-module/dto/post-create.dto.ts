@@ -1,17 +1,23 @@
 import {
   PostState,
-  PostType
+  PostTypeI,
+  Tag
 } from '@project/core';
 
 export class PostCreateDto {
   public id?: string;
-  public tags: string[] | null;
-  public state?: PostState;
-  public type: PostType;
-  public description?: string;
-  public announcement?: string;
-  public text?: string;
-  public name?: string;
+  public tags?: Tag[];
+  public publicationName?: string;
   public link?: string;
-  public photo?: File;
+  public announcement?: string;
+  public announcementText?: string;
+  public quote?: string;
+  public authorQuote?: string;
+  public photo?: string;
+  public descriptionLink?: string;
+  public state?: PostState;
+  public type: PostTypeI;
+  public authorId: string;
+  public authorOriginalId?: string;
+  public isRepost?: boolean;
 }

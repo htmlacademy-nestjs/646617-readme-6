@@ -1,4 +1,4 @@
 export enum Sort {
-  ASC,
-  DESC
+  ASC = 'asc',
+  DESC = 'desc'
 }

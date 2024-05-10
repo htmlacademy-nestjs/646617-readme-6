@@ -1,0 +1,516 @@
+{
+	"info": {
+		"_postman_id": "51653a16-4fb6-4a3b-bcca-4ca4111872a6",
+		"name": "Academy nest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28551166"
+	},
+	"item": [
+		{
+			"name": "API Gateway",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"user@notfound.local\",\n  \"firstname\": \"Keks\",\n  \"lastname\": \"Smith\",\n  \"password\": \"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"user@notfound.local\",\n  \"password\": \"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "BlogUser",
+			"item": [
+				{
+					"name": "getUserById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"user@notfound.local\",\n  \"firstname\": \"Keks\",\n  \"lastname\": \"Smith\",\n  \"password\": \"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/user/7549f6d0-fa1b-432e-81d8-b720e4dd167e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user",
+								"7549f6d0-fa1b-432e-81d8-b720e4dd167e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "chagePassword",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"oldPassword\": \"123456\",\n  \"newPassword\": \"654321\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/user/0fd0315a-4521-4024-8c0f-01d0b8da0b02/changePassword",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user",
+								"0fd0315a-4521-4024-8c0f-01d0b8da0b02",
+								"changePassword"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Feed",
+			"item": [
+				{
+					"name": "feed",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3002/api/feed/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"feed",
+								"list"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PostBlog",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"descriptionLink\": \"test_video\",\n  \"tags\": [{\"title\": \"tag_1\"}, {\"title\": \"tag_2\"}],\n  \"comments\": [{\"message\": \"comment_1\"}, {\"message\": \"comment_2\"}],\n  \"link\": \"www.123.ru\",\n  \"type\": {\"type\": 4}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/7549f6d0-fa1b-432e-81d8-b720e4dd167e/post/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"7549f6d0-fa1b-432e-81d8-b720e4dd167e",
+								"post",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"descriptionLink\": \"test_video111\",\n  \"tags\": [\n    {\"id\": \"e0ddb1be-0a20-49e7-aa65-1c350bd43d77\", \"title\": \"tag_1_updated\"}, \n    {\"id\": \"ae1b7a0e-127b-4d7b-8c89-bc3032d0e546\",\"title\": \"tag_2_updated\"}\n    ],\n  \"link\": \"www.321.ru\",\n  \"type\": {\"type\": 4}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/7549f6d0-fa1b-432e-81d8-b720e4dd167e/post/update/4d4c4b0c-8bb6-4b4f-9919-deae8f36433a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"7549f6d0-fa1b-432e-81d8-b720e4dd167e",
+								"post",
+								"update",
+								"4d4c4b0c-8bb6-4b4f-9919-deae8f36433a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"test_video\",\n  \"tags\": [\"tag_1\", \"tag_2\"],\n  \"link\": \"www.123.ru\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/7549f6d0-fa1b-432e-81d8-b720e4dd167e/post/delete/84f058b3-3299-435b-a7d1-8bb469bbd747",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"7549f6d0-fa1b-432e-81d8-b720e4dd167e",
+								"post",
+								"delete",
+								"84f058b3-3299-435b-a7d1-8bb469bbd747"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "detailedInfo",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"test_video\",\n  \"tags\": [\"tag_1\", \"tag_2\"],\n  \"link\": \"www.123.ru\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/7549f6d0-fa1b-432e-81d8-b720e4dd167e/post/detailedInfo/47a0985b-e412-4947-9dc9-118a905afd80",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"7549f6d0-fa1b-432e-81d8-b720e4dd167e",
+								"post",
+								"detailedInfo",
+								"47a0985b-e412-4947-9dc9-118a905afd80"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "repost",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"test_video\",\n  \"tags\": [\"tag_1\", \"tag_2\"],\n  \"link\": \"www.123.ru\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/7549f6d0-fa1b-432e-81d8-b720e4dd167e/post/repost/491d0e0e-2fd0-4224-8542-79291d533661",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"7549f6d0-fa1b-432e-81d8-b720e4dd167e",
+								"post",
+								"repost",
+								"491d0e0e-2fd0-4224-8542-79291d533661"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"start\": 0,\n  \"end\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/7549f6d0-fa1b-432e-81d8-b720e4dd167e/post/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"7549f6d0-fa1b-432e-81d8-b720e4dd167e",
+								"post",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPostById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"start\": 0,\n  \"end\": 25\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/7549f6d0-fa1b-432e-81d8-b720e4dd167e/post/1322270a-4481-4cdd-a348-511ca84a5b8d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"7549f6d0-fa1b-432e-81d8-b720e4dd167e",
+								"post",
+								"1322270a-4481-4cdd-a348-511ca84a5b8d"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Like",
+			"item": [
+				{
+					"name": "like",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"1322270a-4481-4cdd-a348-511ca84a5b8d\",\n  \"isLike\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/063145a9-5779-49e7-bdd7-36f819640d7a/like",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"063145a9-5779-49e7-bdd7-36f819640d7a",
+								"like"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comment",
+			"item": [
+				{
+					"name": "feed",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"user@notfound.local\",\n  \"firstname\": \"Keks\",\n  \"lastname\": \"Smith\",\n  \"password\": \"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/user/063145a9-5779-49e7-bdd7-36f819640d7a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user",
+								"063145a9-5779-49e7-bdd7-36f819640d7a"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Subscribe",
+			"item": [
+				{
+					"name": "feed",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"user@notfound.local\",\n  \"firstname\": \"Keks\",\n  \"lastname\": \"Smith\",\n  \"password\": \"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/user/063145a9-5779-49e7-bdd7-36f819640d7a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user",
+								"063145a9-5779-49e7-bdd7-36f819640d7a"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

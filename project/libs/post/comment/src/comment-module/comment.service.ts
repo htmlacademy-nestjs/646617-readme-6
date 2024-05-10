@@ -16,7 +16,7 @@ export class CommentService {
   ) {}
 
   async create(createCommentDto: CreateCommentDto): Promise<CommentEntity> {
-    const entity = this.commentFactory.create(createCommentDto);
+    const entity = this.commentFactory.create(createCommentDto as any);
     await this.commentRepository.save(entity);
     return entity;
   }

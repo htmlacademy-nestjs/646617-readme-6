@@ -3,9 +3,10 @@ import { PostController } from './post.controller';
 import { PostService } from './post.service';
 import { PostRepository } from './post.repository';
 import { PostFactory } from './post.factory';
+import { PrismaClientModule } from '@project/post-models';
 
 @Module({
-  imports: [],
+  imports: [PrismaClientModule],
   controllers: [PostController],
   providers: [PostService, PostRepository, PostFactory],
   exports: [PostRepository, PostFactory]

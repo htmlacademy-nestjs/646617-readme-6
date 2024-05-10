@@ -22,8 +22,7 @@ export class LikeService {
     const entity = await this.postRepository.findById(id);
     if(!entity) throw new NotFoundException(PostError.POST_NOT_FOUND);
     const pojo = entity.toPOJO();
-    const newEntity = this.postFactory.create(pojo)
-      .setLike(isLike);
+    const newEntity = this.postFactory.create(pojo);
     await this.postRepository.save(newEntity);
     return Promise.resolve(newEntity);
   }

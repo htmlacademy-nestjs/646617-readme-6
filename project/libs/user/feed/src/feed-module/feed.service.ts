@@ -14,6 +14,6 @@ export class FeedService {
   async getAllPosts({ filter, sort }: PostListDto): Promise<PostUnion[]> {
     //фильтрация и сортировка
     //зарегистрированный может получить список черновиков
-    return await this.postRepository.getAllPosts();
+    return [];
   }
 }

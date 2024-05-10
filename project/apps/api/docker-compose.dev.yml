@@ -16,6 +16,13 @@ services:
     volumes:
       - readmeMongoUsers:/data/db
 
+    healthcheck:
+      test: echo 'db.stats().ok' | mongo localhost:${MONGO_PORT}/test --quiet
+      interval: 10s
+      timeout: 10s
+      retries: 5
+      start_period: 40s
+
   readmeUserMongoUi:
     image: mongo-express:1.0.2-20
     restart: always

@@ -27,6 +27,7 @@
       "@project/helpers": ["libs/shared/helpers/src/index.ts"],
       "@project/like": ["libs/post/like/src/index.ts"],
       "@project/mail": ["libs/notification/mail/src/index.ts"],
+      "@project/post-models": ["libs/post/models/src/index.ts"],
       "@project/postBlog": ["libs/post/postBlog/src/index.ts"],
       "@project/subscribe": ["libs/notification/subscribe/src/index.ts"]
     }
