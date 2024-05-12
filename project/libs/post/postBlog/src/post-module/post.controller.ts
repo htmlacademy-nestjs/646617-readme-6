@@ -9,7 +9,7 @@ import {
 } from '@nestjs/common';
 import { PostService } from './post.service';
 import { PostCreateDto } from './dto/post-create.dto';
-import { PostListDto } from './dto/post-list.dto';
+import { PostListDto } from '@project/postBlog';
 
 @Controller(':userId/post')
 export class PostController {
@@ -23,15 +23,15 @@ export class PostController {
     @Body() postCreateDto: PostCreateDto
   ) {
     const post = await this.postService.create(userId, postCreateDto);
-    const { isRepost, authorOriginal, ...rest } = post.toPOJO();
-    return { ...rest };
+    return post.toPOJO();
   }
 
-  @Put('edit')
-  public async edit(@Body() postCreateDto: PostCreateDto) {
-    const post = await this.postService.edit(postCreateDto);
-    const { isRepost, authorOriginal, ...rest } = post.toPOJO();
-    return { ...rest };
+  @Put('update/:id')
+  public async edit(
+    @Param('id') id: string,
+    @Body() postCreateDto: PostCreateDto
+  ) {
+    await this.postService.update(id, postCreateDto);
   }
 
   @Delete('delete/:id')
@@ -39,22 +39,15 @@ export class PostController {
     await this.postService.delete(id);
   }
 
-  @Get('detailedInfo/:id')
-  public async getDetailedInformation(@Param('id') id: string) {
-    const post = await this.postService.getDetailedInformation(id);
-    return post.toPOJO();
-  }
-
   @Put('repost/:id')
   public async repost(
     @Param('userId') userId: string,
     @Param('id') id: string
   ) {
-    const post = await this.postService.repost(userId, id);
-    return post.toPOJO();
+    await this.postService.repost(userId, id);
   }
 
-  @Get('list')
+  @Post('list')
   public async getAllPosts(@Body() postListDto: PostListDto) {
     return await this.postService.getAllPosts(postListDto);
   }
@@ -62,7 +55,6 @@ export class PostController {
   @Get(':id')
   public async getPostById(@Param('id') id: string) {
     const post = await this.postService.getPostById(id);
-    const { isRepost, authorOriginal, ...rest } = post.toPOJO();
-    return { ...rest };
+    return post.toPOJO();
   }
 }

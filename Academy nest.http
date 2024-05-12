@@ -1,0 +1,212 @@
+# Academy nest
+
+###
+# group: API Gateway
+# @name Register
+POST http://localhost:3000/api/auth/register
+Content-Type: application/json
+
+{
+  "email": "user@notfound.local",
+  "firstname": "Keks",
+  "lastname": "Smith",
+  "password": "123456"
+}
+
+###
+# group: API Gateway
+# @name Login
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "user@notfound.local",
+  "password": "123456"
+}
+
+###
+# group: BlogUser
+# @name getUserById
+GET http://localhost:3000/api/user/7549f6d0-fa1b-432e-81d8-b720e4dd167e
+Content-Type: application/json
+
+{
+  "email": "user@notfound.local",
+  "firstname": "Keks",
+  "lastname": "Smith",
+  "password": "123456"
+}
+
+###
+# group: BlogUser
+# @name chagePassword
+PUT http://localhost:3000/api/user/0fd0315a-4521-4024-8c0f-01d0b8da0b02/changePassword
+Content-Type: application/json
+
+{
+  "oldPassword": "123456",
+  "newPassword": "654321"
+}
+
+###
+# group: Feed
+# @name feed
+GET http://localhost:3002/api/feed/list
+
+###
+# group: PostBlog
+# @name create
+POST http://localhost:3001/api/7549f6d0-fa1b-432e-81d8-b720e4dd167e/post/create
+Content-Type: application/json
+
+{
+  "descriptionLink": "test_video",
+  "tags": [
+    {
+      "title": "tag_1"
+    },
+    {
+      "title": "tag_2"
+    }
+  ],
+  "comments": [
+    {
+      "message": "comment_1"
+    },
+    {
+      "message": "comment_2"
+    }
+  ],
+  "link": "www.123.ru",
+  "type": {
+    "type": 4
+  }
+}
+
+###
+# group: PostBlog
+# @name update
+PUT http://localhost:3001/api/7549f6d0-fa1b-432e-81d8-b720e4dd167e/post/update/4d4c4b0c-8bb6-4b4f-9919-deae8f36433a
+Content-Type: application/json
+
+{
+  "descriptionLink": "test_video111",
+  "tags": [
+    {
+      "id": "e0ddb1be-0a20-49e7-aa65-1c350bd43d77",
+      "title": "tag_1_updated"
+    },
+    {
+      "id": "ae1b7a0e-127b-4d7b-8c89-bc3032d0e546",
+      "title": "tag_2_updated"
+    }
+  ],
+  "link": "www.321.ru",
+  "type": {
+    "type": 4
+  }
+}
+
+###
+# group: PostBlog
+# @name delete
+DELETE http://localhost:3001/api/7549f6d0-fa1b-432e-81d8-b720e4dd167e/post/delete/84f058b3-3299-435b-a7d1-8bb469bbd747
+Content-Type: application/json
+
+{
+  "name": "test_video",
+  "tags": [
+    "tag_1",
+    "tag_2"
+  ],
+  "link": "www.123.ru"
+}
+
+###
+# group: PostBlog
+# @name detailedInfo
+GET http://localhost:3001/api/7549f6d0-fa1b-432e-81d8-b720e4dd167e/post/detailedInfo/47a0985b-e412-4947-9dc9-118a905afd80
+Content-Type: application/json
+
+{
+  "name": "test_video",
+  "tags": [
+    "tag_1",
+    "tag_2"
+  ],
+  "link": "www.123.ru"
+}
+
+###
+# group: PostBlog
+# @name repost
+PUT http://localhost:3001/api/7549f6d0-fa1b-432e-81d8-b720e4dd167e/post/repost/491d0e0e-2fd0-4224-8542-79291d533661
+Content-Type: application/json
+
+{
+  "name": "test_video",
+  "tags": [
+    "tag_1",
+    "tag_2"
+  ],
+  "link": "www.123.ru"
+}
+
+###
+# group: PostBlog
+# @name list
+GET http://localhost:3001/api/7549f6d0-fa1b-432e-81d8-b720e4dd167e/post/list
+Content-Type: application/json
+
+{
+  "start": 0,
+  "end": 2
+}
+
+###
+# group: PostBlog
+# @name getPostById
+GET http://localhost:3001/api/7549f6d0-fa1b-432e-81d8-b720e4dd167e/post/1322270a-4481-4cdd-a348-511ca84a5b8d
+Content-Type: application/json
+
+{
+  "start": 0,
+  "end": 25
+}
+
+###
+# group: Like
+# @name like
+POST http://localhost:3001/api/063145a9-5779-49e7-bdd7-36f819640d7a/like
+Content-Type: application/json
+
+{
+  "id": "1322270a-4481-4cdd-a348-511ca84a5b8d",
+  "isLike": true
+}
+
+###
+# group: Comment
+# @name feed
+GET http://localhost:3000/api/user/063145a9-5779-49e7-bdd7-36f819640d7a
+Content-Type: application/json
+
+{
+  "email": "user@notfound.local",
+  "firstname": "Keks",
+  "lastname": "Smith",
+  "password": "123456"
+}
+
+###
+# group: Subscribe
+# @name feed
+GET http://localhost:3000/api/user/063145a9-5779-49e7-bdd7-36f819640d7a
+Content-Type: application/json
+
+{
+  "email": "user@notfound.local",
+  "firstname": "Keks",
+  "lastname": "Smith",
+  "password": "123456"
+}

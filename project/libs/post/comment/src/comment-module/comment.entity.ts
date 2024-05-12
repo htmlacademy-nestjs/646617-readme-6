@@ -13,12 +13,13 @@ export class CommentEntity extends Entity implements StorableEntity<BlogComment>
   }
   toPOJO(): BlogComment {
     return {
-      comment: this.comment
+      userId: '',
+      message: this.comment
     };
   }
 
   private init(comment?: BlogComment) {
     if(!comment) return;
-    this.comment = comment.comment
+    this.comment = comment.message
   }
 }

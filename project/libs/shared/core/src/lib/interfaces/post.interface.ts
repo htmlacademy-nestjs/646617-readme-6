@@ -1,31 +1,27 @@
 import {
-  PostState,
-  PostType
+  PostState
 } from '../constants';
-import { PostVideo } from './post-video.inteface';
-import { PostText } from './post-text.inteface';
-import { PostQuote } from './post-quote.inteface';
-import { PostPhoto } from './post-photo.inteface';
-import { PostLink } from './post-link.inteface';
-import { User } from './user.interface';
+import { Tag } from './tags.interface';
+import { PostTypeI } from './post-type.interface';
 
 export interface Post {
   id?: string;
-  tags: string[] | null;
-  creationDate?: Date;
-  publicationDate?: Date;
-  state: PostState;
-  type: PostType;
-  author: User;
-  authorOriginal?: User;
+  createdAt?: Date;
+  updatedAt?: Date;
+  tags?: Tag[];
+  publicationName?: string;
+  link?: string;
+  announcement?: string;
+  announcementText?: string;
+  quote?: string;
+  authorQuote?: string;
+  photo?: string;
+  descriptionLink?: string;
+  commentsQty?: number;
+  likesQty?: number;
+  state?: PostState;
+  type?: PostTypeI;
+  authorId: string;
+  authorOriginalId?: string;
   isRepost?: boolean;
-  likeQty?: number;
-  commentQty?: number;
 }
-
-export type PostUnion =
-  | PostVideo
-  | PostText
-  | PostQuote
-  | PostPhoto
-  | PostLink

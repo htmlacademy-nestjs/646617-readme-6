@@ -1,9 +1,8 @@
 import {
   PostState,
   PostType,
-  Sort,
-  SortType
 } from '@project/core';
+import { PostFilter } from '../post-tags.filter';
 
 export class PostListDto {
   public start: number;
@@ -13,8 +12,5 @@ export class PostListDto {
     tag: string;
     status: PostState
   };
-  public sort: {
-    orderBy: Sort
-    orderType: SortType
-  };
+  public sort: PostFilter;
 }
